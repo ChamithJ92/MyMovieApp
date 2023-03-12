@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/HomeFragment"
+            android:icon="@drawable/icon_home"
+            android:title="@string/menu_home" />
+
+        <item
+            android:id="@+id/trendingFragment"
+            android:icon="@drawable/icon_trending"
+            android:title="Trending Movies" />
+        <item
+            android:id="@+id/popularFragment"
+            android:icon="@drawable/icons_popular"
+            android:title="Popular Movies" />
+        <item
+            android:id="@+id/nowPlayingFragment"
+            android:icon="@drawable/icons_projector"
+            android:title="Now Playing Movies" />
+
+        <item
+            android:id="@+id/upcomingFragment"
+            android:icon="@drawable/icon_upcoming"
+            android:title="Upcoming Movies" />
+    </group>
+</menu>

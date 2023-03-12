@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MyMovieApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Welcome.</string>
+    <string name="nav_header_subtitle">Millions of movies, TV shows and people to discover. Explore now.</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_search">Search</string>
+
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="trending_txt">Trending</string>
+    <string name="today_txt">Today</string>
+    <string name="see_all_txt">See all</string>
+    <string name="popular_txt">Popular</string>
+    <string name="in_theaters_txt">In Theaters</string>
+    <string name="now_playing_txt">Now Playing</string>
+    <string name="upcoming_txt">Upcoming</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

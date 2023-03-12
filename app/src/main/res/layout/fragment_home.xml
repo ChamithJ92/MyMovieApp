@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.HomeFragment"
+    android:background="@drawable/background_gradient">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/movieViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_marginTop="10dp"
+                android:paddingStart="80dp"
+                android:paddingEnd="80dp"/>
+
+            <LinearLayout
+                android:id="@+id/titleTrending"
+                android:layout_below="@+id/movieViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:text="@string/trending_txt"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@drawable/rounded_corner_tv"
+                    android:text="@string/today_txt"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/btnSeeAllTrending"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/see_all_txt"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/txt_col_red"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineOne"
+                android:layout_below="@+id/titleTrending"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line_col"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPopularMovies"
+                android:layout_below="@+id/lineOne"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:layout_marginTop="15dp"/>
+
+            <LinearLayout
+                android:id="@+id/titlePopular"
+                android:layout_below="@+id/rvPopularMovies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:text="@string/popular_txt"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@drawable/rounded_corner_tv"
+                    android:text="@string/in_theaters_txt"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/btnSeeListPopular"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/see_all_txt"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/txt_col_red"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineTwo"
+                android:layout_below="@+id/titlePopular"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line_col"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNowPlayingMovie"
+                android:layout_below="@+id/lineTwo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:layout_marginTop="15dp"/>
+
+            <LinearLayout
+                android:id="@+id/titleNowPlaying"
+                android:layout_below="@+id/rvNowPlayingMovie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:text="@string/now_playing_txt"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+<!--                <TextView-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center"-->
+<!--                    android:background="@drawable/rounded_corner_tv"-->
+<!--                    android:text="@string/in_theaters_txt"-->
+<!--                    android:fontFamily="@font/poppins_semibold"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="15sp"/>-->
+
+                <TextView
+                    android:id="@+id/btnSeeAllNowPlaying"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/see_all_txt"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/txt_col_red"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/lineThree"
+                android:layout_below="@+id/titleNowPlaying"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line_col"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvUpcomingMovie"
+                android:layout_below="@+id/lineThree"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:layout_marginTop="15dp"/>
+
+            <LinearLayout
+                android:id="@+id/titleUpcoming"
+                android:layout_below="@+id/rvUpcomingMovie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|left"
+                    android:text="@string/upcoming_txt"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <!--                <TextView-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:background="@drawable/rounded_corner_tv"-->
+                <!--                    android:text="@string/in_theaters_txt"-->
+                <!--                    android:fontFamily="@font/poppins_semibold"-->
+                <!--                    android:textColor="@color/black"-->
+                <!--                    android:textSize="15sp"/>-->
+
+                <TextView
+                    android:id="@+id/btnSeeAllUpcoming"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/see_all_txt"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/txt_col_red"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+<!--            <ProgressBar-->
+<!--                android:id="@+id/paginationProgressBar"-->
+<!--                style="?attr/progressBarStyle"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:visibility="invisible"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:layout_centerHorizontal="true"/>-->
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBarLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>
