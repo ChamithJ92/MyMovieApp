@@ -55,11 +55,13 @@ class MovieViewModel(app: Application,
         safePopularMoviesCall()
     }
 
-    private fun handlePopularMovieResponse(response: Response<PopularMovieResponse>):
+    private fun handlePopularMovieResponse(response:
+                                           Response<PopularMovieResponse>):
             Resource<PopularMovieResponse> {
         if(response.isSuccessful){
             response.body()?.let { resultResponse ->
                 popularMoviePage++
+                Log.e("++++++++", ""+popularMoviePage)
                 if(popularMovieResponse == null){
                     popularMovieResponse = resultResponse
                 }else{
