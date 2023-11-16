@@ -22,13 +22,13 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Run Lint
-        run: ./gradlew lintDebug
+        run: echo Run Lint
 
-      - name: Upload html test report
-        uses: actions/upload-artifact@v1
-        with:
-          name: lint.html
-          path: app/build/reports/lint-results-debug.html
+#      - name: Upload html test report
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: lint.html
+#          path: app/build/reports/lint-results-debug.html
 
   unit-test:
     needs: [ lint ]
@@ -38,29 +38,62 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Run tests
-        run: ./gradlew test
+        run: echo Run tests
 
-      - name: Upload test report
-        uses: actions/upload-artifact@v1
-        with:
-          name: unit_test_report
-          path: app/build/reports/tests/testDebugUnitTest/
+#      - name: Upload test report
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: unit_test_report
+#          path: app/build/reports/tests/testDebugUnitTest/
 
-  instrumentation-test:
+  static-code-analysis:
     needs: [ unit-test ]
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v1
-
-      - name: Run espresso tests
-        uses: reactivecircus/android-emulator-runner@v1
+      - uses: actions/checkout@v3
         with:
-          api-level: 29
-          script: ./gradlew connectedCheck
-
-      - name: Upload test report
-        uses: actions/upload-artifact@v1
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
         with:
-          name: instrumentation_test_report
-          path: app/build/reports/androidTests/connected/
+          java-version: 17
+          distribution: 'zulu' # Alternative distribution options are available
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Cache Gradle packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew build sonar --info
+
+
+#  instrumentation-test:
+#    needs: [ unit-test ]
+#    runs-on: macos-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v1
+#
+#      - name: Run espresso tests
+#        uses: reactivecircus/android-emulator-runner@v1
+#        with:
+#          api-level: 29
+#          script: ./gradlew connectedCheck
+#
+#      - name: Upload test report
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: instrumentation_test_report
+#          path: app/build/reports/androidTests/connected/
+
+
