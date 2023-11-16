@@ -10,7 +10,7 @@ plugins {
 sonar {
     properties {
         property "sonar.projectKey", "ChamithJ92_MyMovieApp"
-        property "sonar.organization", "Dhanushka Chamith"
+        property "sonar.organization", "chamithj92"
         property "sonar.host.url", "https://sonarcloud.io"
     }
 }
